@@ -27,7 +27,7 @@ String filepath;
     }
 
     StringTokenizer st;
-    List tokens;
+    List<String> tokens;
 
     public List<String> getTokensList(String text) {
         st = new StringTokenizer(text, " +");
