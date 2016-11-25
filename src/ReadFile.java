@@ -20,7 +20,7 @@ public class ReadFile {
         String content="";
 
         try {
-            content = new String(Files.readAllBytes(Paths.get("D:\\panindrom.txt")));
+            content = new String(Files.readAllBytes(Paths.get("palindrome.txt")));
         } catch (IOException ex) {
             Logger.getLogger(ReadFile.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("File not found " + ex);
