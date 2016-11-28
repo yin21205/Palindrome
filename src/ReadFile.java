@@ -15,12 +15,18 @@ import java.util.logging.Logger;
  * @author Yasitha
  */
 public class ReadFile {
+    
+    private String url;
 
+    public ReadFile(String url){
+        this.url = url;
+    }
+    
     public String getFile() {
         String content="";
 
         try {
-            content = new String(Files.readAllBytes(Paths.get("wordsEn.txt")));
+            content = new String(Files.readAllBytes(Paths.get(url)));
         } catch (IOException ex) {
             Logger.getLogger(ReadFile.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("File not found " + ex);

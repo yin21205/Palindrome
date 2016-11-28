@@ -1,3 +1,7 @@
+
+import java.util.List;
+import javax.swing.JFileChooser;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -40,6 +44,11 @@ public class PalindromeMainFrame extends javax.swing.JFrame {
         jLabel1.setText("File Path");
 
         btnBrowse.setText("Browse");
+        btnBrowse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBrowseActionPerformed(evt);
+            }
+        });
 
         jSplitPane1.setDividerLocation(200);
 
@@ -83,7 +92,26 @@ public class PalindromeMainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
+    private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
+       browseURL();
+    }//GEN-LAST:event_btnBrowseActionPerformed
+
+    private void browseURL() {
+        JFileChooser jf = new JFileChooser();
+        jf.showOpenDialog(txtFileUrl);
+        txtFileUrl.setText(jf.getSelectedFile().getPath());
+    }
+    
+    List<String> words;
+    private void searchResults(){
+        FindPanindroms findPanindroms = new FindPanindroms();
+        words = findPanindroms.getTokensList(txtFileUrl.getText());
+        for (String word : words) {
+            listWords.
+        }
+    }
+    
+        /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {

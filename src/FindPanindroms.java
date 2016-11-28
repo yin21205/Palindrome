@@ -17,10 +17,11 @@ public class FindPanindroms {
 
     String filepath;
     static int count = 0;
-
+    //static problem
+    private static String url;
     public static void main(String[] args) {
         FindPanindroms findPanindroms = new FindPanindroms();
-        for (String token : findPanindroms.getTokensList(new ReadFile().getFile())) {
+        for (String token : findPanindroms.getTokensList(new ReadFile(url).getFile())) {
             if (findPanindroms.isPanindrom(token)) {
                 System.out.println(token);
                 count++;
