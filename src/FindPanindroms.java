@@ -14,26 +14,32 @@ import java.util.StringTokenizer;
  * @author Yasitha
  */
 public class FindPanindroms {
-    
-    
-String filepath;
+
+    String filepath;
+    static int count = 0;
 
     public static void main(String[] args) {
         FindPanindroms findPanindroms = new FindPanindroms();
         for (String token : findPanindroms.getTokensList(new ReadFile().getFile())) {
-            if(findPanindroms.isPanindrom(token))
+            if (findPanindroms.isPanindrom(token)) {
                 System.out.println(token);
+                count++;
+            }
         }
+        System.out.println("Total of " + count + " Palindromes");
+
     }
 
     StringTokenizer st;
     List<String> tokens;
 
     public List<String> getTokensList(String text) {
-        st = new StringTokenizer(text, " +");
+//        st = new StringTokenizer(text, " +");
+        st = new StringTokenizer(text, "/n");
         tokens = new ArrayList<String>();
         while (st.hasMoreTokens()) {
             tokens.add(st.nextToken().trim());
+            count++;
         }
         return tokens;
     }
@@ -52,7 +58,7 @@ String filepath;
         while (!reverseStack.empty()) {
             reversedText += reverseStack.pop();
         }
-        if (token.equals(reversedText) & token.length()>2) {
+        if (token.equals(reversedText) & token.length() > 2) {
             return true;
         } else {
             return false;
