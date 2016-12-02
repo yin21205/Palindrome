@@ -1,8 +1,9 @@
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JFileChooser;
-import javax.swing.JList;
+import javax.swing.ListModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -43,6 +44,8 @@ public class PalindromeMainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("File Path");
+
+        txtFileUrl.setText("C:\\Users\\hmynherath\\Documents\\Git Projects\\Palindrome\\trunk\\wordsEn.txt");
 
         btnBrowse.setText("Browse");
         btnBrowse.addActionListener(new java.awt.event.ActionListener() {
@@ -118,13 +121,15 @@ public class PalindromeMainFrame extends javax.swing.JFrame {
     DefaultListModel<String> model;
 
     private void searchResults() {
+        model = new DefaultListModel<String>();
         FindPanindroms findPanindroms = new FindPanindroms();
-        words = findPanindroms.getTokensList(txtFileUrl.getText());
+        words = findPanindroms.getTokensList(new ReadFile(txtFileUrl.getText()).getFile());
+            listWords.setModel(model);
         for (String word : words) {
-//            model.addElement(word);
+            model.addElement(word);
             System.out.println(word);
+            listWords.
         }
-
     }
 
     /**
